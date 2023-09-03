@@ -1,12 +1,15 @@
+import streamlit as st
+import numpy as np
+from PIL import Image
 import cv2
 import mediapipe as mp
-import numpy as np
-import streamlit as st
-from PIL import Image
 import time
 import datetime
 import winsound
 import os
+import threading
+import pickle
+
 
 # Mock RandomForestClassifier model (replace this with your actual model)
 class MockRandomForestClassifier:
@@ -114,7 +117,6 @@ def update_video_feed():
 
     except Exception as e:
         print("An error occurred:", e)
-
 
 # Function to show the popup with the captured frame
 def show_popup(image_path):
