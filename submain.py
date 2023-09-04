@@ -1,16 +1,11 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
-import numpy as np
 from PIL import Image
 import cv2
 import mediapipe as mp
 import time
 import datetime
-#import winsound
 import os
 import threading
-import pickle
-
 
 # Mock RandomForestClassifier model (replace this with your actual model)
 class MockRandomForestClassifier:
@@ -39,7 +34,6 @@ st.title("Sign Detection")
 # Create a placeholder to display the video feed
 video_placeholder = st.empty()
 
-
 # Function to update the video feed
 def update_video_feed():
     try:
@@ -48,9 +42,7 @@ def update_video_feed():
         y_ = []
 
         # Use OpenCV to capture video frames
-        os.environ['OPENCV_FFMPEG_CAPTURE_OPTIONS'] = 'rtsp_transport;udp'
-
-        cap = cv2.VideoCapture("http://192.0.0.2:8080", cv2.CAP_FFMPEG)
+        cap = cv2.VideoCapture(0)  # Use 0 for the default webcam
 
         while True:
             ret, frame = cap.read()
@@ -123,17 +115,12 @@ def update_video_feed():
 
 # Function to show the popup with the captured frame
 def show_popup(image_path):
-    # frequency = 2000
-    # duration = 2000
-
-    # winsound.Beep(frequency, duration)
     time.sleep(1)
 
     st.write("Help Needed")
 
     img = Image.open(image_path)
     st.image(img)
-
 
 # Create a button to start the video feed
 if st.button("Start"):
