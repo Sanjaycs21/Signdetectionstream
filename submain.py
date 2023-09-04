@@ -6,7 +6,7 @@ import cv2
 import mediapipe as mp
 import time
 import datetime
-import winsound
+#import winsound
 import os
 import threading
 import pickle
@@ -121,10 +121,10 @@ def update_video_feed():
 
 # Function to show the popup with the captured frame
 def show_popup(image_path):
-    frequency = 2000
-    duration = 2000
+    # frequency = 2000
+    # duration = 2000
 
-    winsound.Beep(frequency, duration)
+    # winsound.Beep(frequency, duration)
     time.sleep(1)
 
     st.write("Help Needed")
