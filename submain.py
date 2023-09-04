@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
 import numpy as np
 from PIL import Image
 import cv2
