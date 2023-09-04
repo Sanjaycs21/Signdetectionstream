@@ -1,4 +1,6 @@
+this is my code 
 import streamlit as st
+from streamlit_lottie import st_lottie
 import numpy as np
 from PIL import Image
 import cv2
@@ -49,12 +51,10 @@ def update_video_feed():
         # Use OpenCV to capture video frames
         os.environ['OPENCV_FFMPEG_CAPTURE_OPTIONS'] = 'rtsp_transport;udp'
 
-        cap = cv2.VideoCapture("http://213.236.250.78/mjpg/video.mjpg", cv2.CAP_FFMPEG)
+        cap = cv2.VideoCapture('http://213.236.250.78/mjpg/video.mjpg')
 
         while True:
             ret, frame = cap.read()
-
-
 
             H, W, _ = frame.shape
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -126,7 +126,7 @@ def update_video_feed():
 def show_popup(image_path):
     # frequency = 2000
     # duration = 2000
-    #
+
     # winsound.Beep(frequency, duration)
     time.sleep(1)
 
@@ -139,5 +139,3 @@ def show_popup(image_path):
 # Create a button to start the video feed
 if st.button("Start"):
     update_video_feed()
-
-# Rest of your code
