@@ -48,7 +48,7 @@ def update_video_feed():
         y_ = []
 
         # Use OpenCV to capture video frames
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(1)
 
         while True:
             ret, frame = cap.read()
