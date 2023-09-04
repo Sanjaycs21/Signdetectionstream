@@ -48,7 +48,9 @@ def update_video_feed():
         y_ = []
 
         # Use OpenCV to capture video frames
-        cap = cv2.VideoCapture(1)
+         os.environ['OPENCV_FFMPEG_CAPTURE_OPTIONS'] = 'rtsp_transport;udp'
+
+        cap = cv2.VideoCapture("http://213.236.250.78/mjpg/video.mjpg", cv2.CAP_FFMPEG)
 
         while True:
             ret, frame = cap.read()
